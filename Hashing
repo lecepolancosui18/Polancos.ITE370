@@ -1,0 +1,15 @@
+import hashlib
+
+users = {}
+
+def h(x):
+    return hashlib.sha256(x.encode()).hexdigest()
+
+name = input("Create username: ")
+password = input("Create password: ")
+users[name] = h(password)
+
+name = input("Username: ")
+password = input("Password: ")
+
+print(("Login failed ", "Login successful ")[users[name] == h(password)])
